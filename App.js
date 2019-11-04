@@ -14,6 +14,7 @@ import {
   View,
   Text,
   StatusBar,
+  Image,
 } from 'react-native';
 
 import {
@@ -32,7 +33,37 @@ const App: () => React$Node = () => {
         <ScrollView
           contentInsetAdjustmentBehavior="automatic"
           style={styles.scrollView}>
-          <View style={styles.card} />
+          <View style={styles.card}>
+            <View style={styles.top}>
+              <Image
+                style={{width: 50, height: 50}}
+                source={{
+                  uri:
+                    'https://facebook.github.io/react-native/img/tiny_logo.png',
+                }}
+              />
+              <Image
+                style={{width: 50, height: 50}}
+                source={{
+                  uri:
+                    'https://facebook.github.io/react-native/img/tiny_logo.png',
+                }}
+              />
+            </View>
+            <View style={styles.cardNo}>
+              <Text style={styles.cardNoText}>#### #### ####</Text>
+            </View>
+            <View style={styles.footer}>
+              <View>
+                <Text style={styles.label}>Card Holder</Text>
+                <Text style={styles.text}>FULL NAME</Text>
+              </View>
+              <View>
+                <Text style={styles.label}>Expires</Text>
+                <Text style={styles.text}>MM/YY</Text>
+              </View>
+            </View>
+          </View>
         </ScrollView>
       </SafeAreaView>
     </>
@@ -42,11 +73,41 @@ const App: () => React$Node = () => {
 const styles = StyleSheet.create({
   card: {
     flex: 1,
-    width: 350,
-    height: 200,
+    width: 380,
+    height: 230,
     alignSelf: 'center',
     marginTop: 40,
+    borderRadius: 10,
+    padding: 15,
     backgroundColor: Colors.dark,
+  },
+  top: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  cardNo: {
+    marginTop: 25,
+  },
+  cardNoText: {
+    paddingHorizontal: 5,
+    color: Colors.white,
+    fontWeight: '800',
+    fontSize: 25,
+    letterSpacing: 5,
+  },
+  footer: {
+    marginTop: 40,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  label: {
+    color: Colors.lighter,
+    fontWeight: '100',
+  },
+  text: {
+    color: Colors.white,
+    fontSize: 18,
+    fontWeight: '500',
   },
   scrollView: {
     backgroundColor: Colors.lighter,
@@ -75,14 +136,6 @@ const styles = StyleSheet.create({
   },
   highlight: {
     fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
   },
 });
 
